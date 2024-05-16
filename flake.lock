@@ -1,0 +1,149 @@
+{
+  "nodes": {
+    "damper": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixfmt": "nixfmt",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715842058,
+        "narHash": "sha256-UWIGDW3dmvAQgTDzV1gmvShiMRLznOG4YAVxLgJNLKg=",
+        "owner": "wrsturgeon",
+        "repo": "damper-pytorch",
+        "rev": "db4300339544d1fc496ce949306e7010e8afdfa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wrsturgeon",
+        "repo": "damper-pytorch",
+        "type": "github"
+      }
+    },
+    "deepobs": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "src": "src"
+      },
+      "locked": {
+        "lastModified": 1715841555,
+        "narHash": "sha256-ESWFHXOWrnnd+cmLd+wLJuTee5nxRzTzYUFjNZMQm9E=",
+        "owner": "wrsturgeon",
+        "repo": "deepobs",
+        "rev": "72ffe92690fd2b9f5a8a726a542fa5c6ab5d88e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wrsturgeon",
+        "repo": "deepobs",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixfmt": {
+      "inputs": {
+        "flake-utils": [
+          "damper",
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713478555,
+        "narHash": "sha256-Sdhv/YQxvF6OJeEY+iyg3f2p6XCankrYQffsxMajnGs=",
+        "owner": "serokell",
+        "repo": "nixfmt",
+        "rev": "a8b578d124cfda7540957a2172f89aa12d99609f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "serokell",
+        "repo": "nixfmt",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1715534503,
+        "narHash": "sha256-5ZSVkFadZbFP1THataCaSf0JH2cAH3S29hU9rrxTEqk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2057814051972fa1453ddfb0d98badbea9b83c06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "damper": "damper",
+        "deepobs": "deepobs",
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      }
+    },
+    "src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636194039,
+        "narHash": "sha256-QGbRP9FFpddsy0J+8CsmGliAy8xXata0unhUag6Gp30=",
+        "owner": "fsschneider",
+        "repo": "deepobs",
+        "rev": "9782c0b8f52e4061b6853c165639646d2ec41a8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fsschneider",
+        "ref": "develop",
+        "repo": "deepobs",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
