@@ -11,11 +11,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715842058,
-        "narHash": "sha256-UWIGDW3dmvAQgTDzV1gmvShiMRLznOG4YAVxLgJNLKg=",
+        "lastModified": 1715886613,
+        "narHash": "sha256-57QC/CwEQkxNhQw2zbUP2cXfjCFXoaNSLExiPAYfuCE=",
         "owner": "wrsturgeon",
         "repo": "damper-pytorch",
-        "rev": "db4300339544d1fc496ce949306e7010e8afdfa3",
+        "rev": "b7302a392483a8762480ed7411aafd57eea3aba4",
         "type": "github"
       },
       "original": {
@@ -89,11 +89,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1715534503,
-        "narHash": "sha256-5ZSVkFadZbFP1THataCaSf0JH2cAH3S29hU9rrxTEqk=",
+        "lastModified": 1715787315,
+        "narHash": "sha256-cYApT0NXJfqBkKcci7D9Kr4CBYZKOQKDYA23q8XNuWg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2057814051972fa1453ddfb0d98badbea9b83c06",
+        "rev": "33d1e753c82ffc557b4a585c77de43d4c922ebb5",
         "type": "github"
       },
       "original": {

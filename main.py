@@ -1,10 +1,20 @@
-from torch.optim import SGD
+import optimizers as opt
+
 from deepobs import pytorch as pt
 
-optimizer_class = SGD
-hyperparams = {"lr": {"type": float},
-               "momentum": {"type": float, "default": 0.99},
-               "nesterov": {"type": bool, "default": False}}
 
-runner = pt.runners.StandardRunner(optimizer_class, hyperparams)
-runner.run(testproblem='quadratic_deep', hyperparams={'lr': 1e-2}, num_epochs=10)
+optimizer_name = "damper"  # "sgd"
+problem_name = "quadratic_deep"
+
+
+optimizer_class = opt.optimizers[optimizer_name]
+all_hparams = opt.all_hyperparameters[optimizer_name]
+set_hparams = opt.set_hyperparameters[optimizer_name]
+
+
+runner = pt.runners.StandardRunner(optimizer_class, all_hparams)
+runner.run(
+    testproblem=problem_name,
+    hyperparams=set_hparams,
+    num_epochs=10,
+)

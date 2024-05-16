@@ -40,42 +40,56 @@
         dependencies =
           pypkgs:
           (builtins.map (f: f.lib.with-pkgs pkgs pypkgs) [
-            damper
+            (builtins.trace "${damper.lib.with-pkgs pkgs pypkgs}" damper)
             deepobs
           ])
           ++ (with pypkgs; [
             bayesian-optimization
-            torchvision
+            (builtins.trace "${torchvision}" torchvision)
           ]);
+        # python = pypkgs.python.withPackages dependencies;
         python = pypkgs.python;
       in
       {
-        apps = builtins.mapAttrs (k: v: {
-          type = "app";
-          program = "${
-            pkgs.stdenv.mkDerivation {
-              pname = "run";
-              version = "ad-hoc";
-              inherit src;
-              buildPhase = ":";
-              installPhase = ''
-                mkdir -p $out/bin
-                echo '#!{pkgs.bash}/bin/bash' > $out/bin/run
-                echo '${v}' >> $out/bin/run
-                chmod +x $out/bin/run
-                wrapProgram $out/bin/run --prefix PATH : ${
-                  nixpkgs.lib.makeBinPath ([ python ] ++ (with pkgs; [ wget ]))
+        apps =
+          builtins.mapAttrs
+            (k: v: {
+              type = "app";
+              program = "${
+                pkgs.stdenv.mkDerivation {
+                  pname = "run";
+                  version = "ad-hoc";
+                  inherit src;
+                  buildPhase = ":";
+                  installPhase = ''
+                    mkdir -p $out/bin
+                    echo '#!{pkgs.bash}/bin/bash' > $out/bin/run
+                    echo '${v}' >> $out/bin/run
+                    chmod +x $out/bin/run
+                    wrapProgram $out/bin/run --prefix PATH : ${
+                      nixpkgs.lib.makeBinPath ([ python ] ++ (with pkgs; [ wget ]))
+                    }
+                  '';
+                  nativeBuildInputs = with pkgs; [ makeWrapper ];
                 }
+              }/bin/run";
+            })
+            {
+              analyze = ''
+                ${python}/bin/python ${src}/analyze.py
               '';
-              nativeBuildInputs = with pkgs; [ makeWrapper ];
-            }
-          }/bin/run";
-        }) { };
+              default = ''
+                ${python}/bin/python ${src}/main.py
+              '';
+            };
         devShells.default = pkgs.mkShell {
-          packages = [
-            python
-            pypkgs.python-lsp-server
-          ] ++ (dependencies pypkgs);
+          packages =
+            [ python ]
+            ++ (with pypkgs; [
+              black
+              python-lsp-server
+            ])
+            ++ (dependencies pypkgs);
         };
       }
     );
